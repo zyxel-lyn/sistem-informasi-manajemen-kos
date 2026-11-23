@@ -3,20 +3,20 @@
 ## Project Identity
 - Name: Sistem Informasi Manajemen Kos (SI-Kos)
 - Goal: Aplikasi desktop untuk mencatat kamar, penghuni, dan pembayaran sewa bulanan, plus rekap penunggak dan pemasukan.
-- Repository/workspace: `D:\Wildanun Mukhallid\Tugas\Semester 5\Pemrograman 2\Project UAS`
+- Repository/workspace: lokal `Project UAS` + GitHub `https://github.com/zyxel-lyn/sistem-informasi-manajemen-kos` (main)
 - Current mode: GREENFIELD
 
 ## Current Phase
-- Phase: 3 (Core Implementation) — lapisan data dan layanan selesai
-- WBS milestone: 3.0 / 4.0 / 5.0 / 6.0 / 7.0 / 8.0 (layanan)
-- Current scope: logika layanan tanpa UI
-- Last completed increment: `services.py` + `services_lanjutan.py` + `cek_services.py`
+- Phase: 5 (Quality and Acceptance)
+- WBS milestone: 9.0 UI + 10.0 QA + 11.0 Docs
+- Current scope: UI lengkap, QA, README, repository
+- Last completed increment: uji UI 37 PASS, README, git init + push ke GitHub
 
 ## Client Collaboration State
 - Latest Approval Package: Baseline v0.1 (desktop Tkinter + SQLite, 2 role, sewa bulanan ikut tanggal masuk)
 - Approval status: APPROVED (23 Nov 2026)
-- Last client instruction: "Lanjutkan" (melanjutkan ke layanan)
-- Pending client confirmations: HAR-1 (cetak kuitansi), HAR-3 (bahasa Indonesia penuh) — tidak menghalangi
+- Last client instruction: "Approve 1,2,3 + buatkan repo GitHub"
+- Pending client confirmations: HAR-1 (cetak kuitansi), HAR-3 (bahasa Indonesia penuh)
 
 ## Requirement State
 - CONFIRMED: REQ-001 … REQ-009 (lihat `FLOW_BASELINE.md`)
@@ -61,16 +61,18 @@
 - DEC-004 (ACCEPTED): password disimpan sebagai PBKDF2-SHA256 + salt (`hashlib` standar), tanpa library luar.
 - DEC-005 (ACCEPTED): status kamar `terisi/kosong` disimpan sebagai kolom dan dijaga konsisten dengan data penghuni aktif.
 - RETRIEVAL: none — proyek kecil, tanpa Graphify/Codebase Memory.
+- DEC-006 (ACCEPTED): hak `pembayaran_batal` ditambahkan khusus Pemilik, menggantikan pemakaian `laporan_lihat` untuk pembatalan.
+- DEC-007 (ACCEPTED): repository publik `sistem-informasi-manajemen-kos` di akun zyxel-lyn, branch main.
 
 ## Last Verified Evidence
 - Build: tidak ada build step (Python murni)
-- Tests: `python cek_skema.py` → **30 PASS, 0 FAIL**; `python cek_services.py` → **69 PASS, 0 FAIL** (23 Nov 2026, exit code 0 keduanya)
+- Tests: `cek_skema.py` 30 PASS · `cek_services.py` 69 PASS · `cek_ui.py` **37 PASS, 0 FAIL** (23 Nov 2026, exit 0 ketiganya)
 - Runtime: `python db.py` → database dibuat, 2 users / 8 kamar / 5 penghuni / 8 pembayaran
 - Responsive: belum (belum ada UI)
 - Accessibility: belum (belum ada UI)
-- Security: hash password terverifikasi; akses per role ditolak di layanan (7 kasus negatif lulus)
+- Security: hash password terverifikasi; akses per role ditolak di layanan (7 kasus negatif lulus); password Pemilik tidak bisa dinonaktifkan sendiri
 - Deployment: NOT APPLICABLE (aplikasi lokal)
-- Commit/source checkpoint: NONE — belum ada repository
+- Commit/source checkpoint: 60661c9 (main, sudah dipush ke GitHub)
 
 ## Open Risks and Defects
 - RISK-001: hitungan penunggak di batas tanggal 29/30/31 belum diuji (menunggu `services.py`)
@@ -82,13 +84,13 @@
 - WAITING FOR CLIENT: —
 
 ## Next Actions
-1. Buat UI Tkinter: `main.py` (login + app shell), `ui/` berisi layar Kamar, Penghuni, Pembayaran, Penunggak, Laporan, Pengguna, Dashboard.
-2. Jalankan aplikasi dan lakukan click-through setiap tombol; catat bukti per elemen.
-3. Tulis `QA_REPORT.md` dan `README.md` (akun demo + cara menjalankan).
+1. Minta client meninjau aplikasi (acceptance) dan menandai WBS 9.0/10.0/11.0 sebagai ACCEPTED bila setuju.
+2. Opsional: tombol ubah pada tabel Kamar diuji kliknya, tooltip untuk teks fasilitas panjang, dan jalur pemulihan password Pemilik.
+3. Opsional: tangkapan layar di README supaya repo lebih informatif saat dinilai.
 
 ## Freshness
-- State updated: 23 Nov 2026 11:25
-- Source commit: NONE
+- State updated: 23 Nov 2026 13:05
+- Source commit: 60661c9
 - Evidence timestamp: 23 Nov 2026 11:13
 - Graph status: NOT AVAILABLE (RETRIEVAL=none)
 - Known stale areas: —
