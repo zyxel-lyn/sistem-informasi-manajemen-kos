@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+# Database kerja: dibuat ulang otomatis oleh db.py saat aplikasi dijalankan.
+sikos.db
+sikos.db-journal
+sikos.db-wal
+# Hasil uji lokal
+bukti/ui.db
+bukti/laporan-uji.csv
+

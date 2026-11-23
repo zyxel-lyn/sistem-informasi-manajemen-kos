@@ -1,0 +1,73 @@
+[1] Layar login
+  PASS  jendela login tampil
+  PASS  password salah menampilkan pesan, tidak masuk  (Username atau password salah.)
+
+[2] Login pemilik
+  PASS  masuk sebagai pemilik
+  PASS  menu pemilik lengkap (7 termasuk laporan dan pengguna)  (['dashboard', 'kamar', 'penghuni', 'pembayaran', 'penunggak', 'laporan', 'pengguna'])
+
+[3] Keliling semua layar pemilik
+  PASS  layar kamar terbuka dan tabel terisi  (8 baris)
+  PASS  layar penghuni terbuka dan tabel terisi  (7 baris)
+  PASS  layar pembayaran terbuka dan tabel terisi  (0 baris)
+  PASS  layar penunggak terbuka dan tabel terisi  (6 baris)
+  PASS  layar laporan terbuka dan tabel terisi  (7 baris)
+  PASS  layar pengguna terbuka dan tabel terisi  (2 baris)
+
+[4] CRUD kamar lewat dialog
+  PASS  dialog tambah kamar terbuka
+  PASS  kamar 09 muncul di tabel setelah disimpan  (['01', '02', '03', '04', '05', '06', '07', '08', '09'])
+
+[5] Validasi input ditolak dengan pesan
+  PASS  nomor dobel ditolak dengan pesan  (Tidak dapat dilanjutkan Nomor kamar 09 sudah dipakai. Gunakan nomor lain.)
+
+[6] Cari, hapus, dan penunggak
+  PASS  pencarian menyaring tabel
+  PASS  tombol Hapus kamar ada untuk pemilik
+  PASS  kamar 09 terhapus setelah konfirmasi disetujui  (['01', '02', '03', '04', '05', '06', '07', '08'])
+  PASS  daftar penunggak berisi penghuni bulan ini  (6 baris)
+  PASS  teks pengingat tersalin ke clipboard
+
+[7] Laporan pemilik
+  PASS  total pemasukan terisi dari data pembayaran bulan lalu  (Rp3.150.000)
+  PASS  keterangan belum dibayar menampilkan angka
+
+[8] Logout dan login penjaga, menu dibatasi
+  PASS  masuk sebagai penjaga
+  PASS  menu laporan tidak ada untuk penjaga  (['dashboard', 'kamar', 'pembayaran', 'penghuni', 'penunggak'])
+  PASS  menu pengguna tidak ada untuk penjaga
+
+[9] Tombol hapus tidak dibuat untuk penjaga
+  PASS  tombol Hapus tidak ada di layar kamar penjaga
+  PASS  tombol Tambah kamar tetap ada untuk penjaga
+
+[10] Keyboard: Tab memindah fokus, Escape menutup dialog
+  PASS  dialog tambah penghuni terbuka
+  PASS  Escape menutup dialog
+
+[11] Fokus keyboard terlihat di kontrol
+  PASS  widget fokus dapat difokuskan
+
+[12] Penjaga menambah penghuni baru lewat dialog
+  PASS  dialog tambah penghuni terbuka
+  PASS  kamar kosong tersedia untuk dipilih
+  PASS  penghuni baru masuk ke tabel  (7 -> 8)
+
+[13] Tombol Ubah membuka dialog berisi data terpilih
+  PASS  tombol Ubah membuka dialog Ubah penghuni
+
+[14] Pemilik: ekspor laporan ke CSV lewat tombol
+  PASS  berkas CSV terbentuk lewat tombol ekspor  (350 byte)
+
+[15] Pemilik: tambah akun lewat dialog
+  PASS  dialog tambah akun terbuka
+  PASS  akun baru masuk ke tabel  (2 -> 3)
+
+[16] Akun baru bisa login, akun yang dinonaktifkan ditolak
+  PASS  akun baru bisa login sebagai penjaga
+  PASS  akun nonaktif ditolak saat login
+
+====================================================
+HASIL UI: 37 PASS, 0 FAIL
+Bukti tangkapan layar: 15 berkas di D:\Wildanun Mukhallid\Tugas\Semester 5\Pemrograman 2\Project UAS\bukti
+====================================================
